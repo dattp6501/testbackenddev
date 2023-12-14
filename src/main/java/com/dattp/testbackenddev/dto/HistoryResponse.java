@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class HistoryResponse {
     private Long id;
-    @JsonFormat(pattern = "HH:mm:ss dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date date;
     private int point;
     private boolean isAttendance;

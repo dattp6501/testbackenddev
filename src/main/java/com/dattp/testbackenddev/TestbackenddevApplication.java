@@ -33,7 +33,7 @@ public class TestbackenddevApplication {
 			userService.addListTimeAttendanceToRedis(times);
 			// 
 			List<MyPair<String,Integer>> tablePoint = new ArrayList<>();
-			for(int i=14; i<=16; i++){
+			for(int i=1; i<=7; i++){
 				tablePoint.add(new MyPair<String,Integer>(String.format("%2d/12/2023", i), i*100));
 			}
 			userService.addTablePointToRedis(tablePoint);
