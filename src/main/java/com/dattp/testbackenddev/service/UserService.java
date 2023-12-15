@@ -87,6 +87,14 @@ public class UserService {
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public void trancateHistory(){
         historyRepository.truncate();
+        // update table point redis
+        List<MyPair<String,Integer>> tablePoint = new ArrayList<>();
+        Date current = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("MM/yyyy"); 
+        for(int i=1; i<=7; i++){
+            tablePoint.add(new MyPair<String,Integer>(String.format("%2d/%s", i, format.format(current)), i*100));
+        }
+		addTablePointToRedis(tablePoint);
     }
 
     public void addListTimeAttendanceToRedis(ArrayList<Period> times){
