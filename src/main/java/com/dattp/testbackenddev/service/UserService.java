@@ -84,7 +84,7 @@ public class UserService {
         return user.getHistory();
     }
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional
     public void trancateHistory(){
         historyRepository.truncate();
         // update table point redis
